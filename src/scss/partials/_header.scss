@@ -1,5 +1,7 @@
 .header {
-
+    position: relative;
+    z-index: 3;
+    background: #fff;
 }
 
 .header__top {
@@ -77,30 +79,159 @@
 }
 
 .header__bottom {
+    width: calc(100% + 40px);
+    margin-left: -20px;
 
     .header__nav_list-bottom {
         display: flex;
     }
 
     .header__link-bottom {
+        position: relative;
         font-size: 17px;
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 1.46px;
         transition: 0.2s ease-in-out;
 
-        a {
+        .header__link-bottom-link {
+            display: block;
             padding: 18px 21px;
             transition: 0.2s ease-in-out;
         }
 
         &:hover {
 
-            a {
+            .header__link-bottom-link{
                 background-color: #ed1c24;
                 color: #ffffff;
             }
+            .header__nav_sublist-bottom {
+                opacity: 1;
+                pointer-events: all;
+            }
         }
+    }
+
+    .header__nav_sublist-bottom {
+        position: absolute;
+        z-index: 3;
+        top: 56px;
+        left: 0;
+        border-top: 2px solid #ed1c24;
+        background: #fff;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease-in-out;
+        padding: 10px 0;
+
+        .header__nav_sublist-bottom-link {
+            position: relative;
+            display: block;
+            
+            color: #1c1c1c;
+            font-family: "Arial", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            transition: 0.2s ease-in-out;
+            white-space: nowrap;
+            letter-spacing: normal;
+            text-transform: none;
+
+            &:hover {
+                color: #ed1c24;
+                background-color: #f4f4f6;
+
+                .header__nav_sublist-2-bottom {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+
+                .with_sublist  {
+
+                    &:before {
+                        background: url(../img/arrow_next_small_hover.svg) center no-repeat;
+                    }
+                }
+            }
+
+            a {
+                display: block;
+            }
+
+            .header__nav_sublist-bottom-link-a {
+                position: relative;
+                padding: 5px  29px 5px 20px;
+            }
+        }
+
+        .with_sublist {
+
+           
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 19px;
+                transform: translateY(-50%);
+                width: 6px;
+                height: 10px;
+                background: url(../img/arrow_next_small.svg) center no-repeat;
+                transition: 0.2s ease-in-out;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .header__nav_sublist-2-bottom {
+        position: absolute;
+        top: -12px;
+        left: 100%;
+        border-top: 2px solid #ed1c24;
+        padding: 34px 0 36px 0;
+        background-color: #f4f4f6;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease-in-out;
+
+        .header__nav_sublist-2-bottom-link {
+            display: block;
+            color: #1c1c1c;
+            font-family: "Arial", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 28px;
+            transition: 0.2s ease-in-out;
+            white-space: nowrap;
+            letter-spacing: normal;
+            text-transform: none;
+            
+
+            &:hover {
+
+                .header__nav_sublist-2-bottom-link-a {
+                    color: #ed1c24;
+                    background-color: #fff;
+                }
+                
+            }
+        }
+
+        .header__nav_sublist-2-bottom-link-a {
+            padding: 0 125px 0 31px;
+            transition: 0.2s ease-in-out;
+        }
+    }
+
+    .sublist_title {
+        color: #404040;
+        font-size: 17px;
+        font-weight: 900;
+        line-height: 40px;
+        text-transform: uppercase;
+        letter-spacing: 0.85px; 
+        padding: 0 125px 0 31px;
     }
 }
 
@@ -172,4 +303,20 @@
     }
 }
   
- 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+ }
