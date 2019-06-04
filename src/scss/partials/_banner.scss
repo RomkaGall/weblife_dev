@@ -38,6 +38,14 @@
             height: 100%;
             object-fit: cover;
             object-position: 20% 0;
+
+            @media (min-width: 1900px) {
+                object-position: 60% 0;
+            }
+
+            @media (max-width: 480px) {
+                object-position: 21.7% 0;
+            }
         }
     }
 }
@@ -63,7 +71,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    bottom: 24px;
+    bottom: 20px;
     z-index: 1;
 
     li {
