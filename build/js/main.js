@@ -13,11 +13,32 @@ $(document).ready(function () {
 
   $('.menu_btn').click(function () {
     $(this).toggleClass('open');
-    $('.header__menu').toggleClass('show')
+    $('.header__menu').toggleClass('show');
+    $('.overlay').toggleClass('active');
+    $('.header').toggleClass('background');
   });
 
-  $('.header__link-bottom').hover(function() {
+  $('.header__link-bottom').hover(function () {
     $('.overlay').toggleClass('active')
+  })
+
+  $(window).resize(function () {
+    if ($(window).width() > 1000) {
+      $('.overlay').removeClass('active');
+      $('.header__menu').removeClass('show');
+      $('.menu_btn').removeClass('open');
+      $('.header').removeClass('background');
+    }
+  })
+
+  $('.menu__nav-item-a.with_sublist').click(function (e) {
+    e.preventDefault();
+    $(this).siblings('.menu-lvl').addClass('show')
+  })
+
+  $('.menu_back').click(function () {
+    $(this).closest('.menu-lvl').removeClass('show');
+    console.log($(this).closest('.menu-lvl-2'))
   })
 
   //wow
