@@ -59,9 +59,8 @@
         }
 
         @media (max-width: 1200px) {
-            font-size: 14px;
-            padding: 8px 6px;
             text-align: center;
+            font-size: 12px;
         }
 
         a {
@@ -318,6 +317,7 @@
     }
 
     .sublist_title {
+        font-family: 'MuseoSans', sans-serif;
         margin-bottom: 18px;
         color: #404040;
         font-size: 17px;
@@ -428,6 +428,8 @@
     left: 0;
     z-index: 4;
     width: 417px;
+    min-height: 100%;
+    overflow: auto;
     padding: 20px 0 58px 32px;
     background: #fff;
     transform: translateX(-100%);
@@ -477,9 +479,7 @@
 
         .with_sublist {
 
-            &:before {
-                right: 34px;
-            }
+            
         }
     }
     .menu__nav-item-a {
@@ -503,6 +503,10 @@
             justify-content: space-between;
             flex-wrap: wrap;
             padding-right: 48px;
+
+            @media (max-width: 479px) {
+                padding-right: 15px;
+            }
         }
 
         .menu__extralinks-item {
@@ -514,9 +518,13 @@
             font-weight: 400;
 
             @media (max-width: 479px) {
-                font-size: 16px;
-                min-width: 120px;
+                font-size: 14px;
+                min-width: auto;
+                width: 120px;
                 margin-bottom: 20px;
+            }
+            @media (max-width: 425px) {
+                width: 110px;
             }
         }
     }
@@ -631,6 +639,7 @@
     .with_sublist {
         
         &:before {
+            right: 34px;
             width: 11px;
             height: 19px;
             background: url(../img/menu_with_sublist_arrow.svg);
