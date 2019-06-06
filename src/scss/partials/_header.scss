@@ -422,7 +422,7 @@
     }
 }
 
-.header__menu {
+.header__menu_wr {
     position: absolute;
     top: 0;
     left: 0;
@@ -430,7 +430,6 @@
     width: 417px;
     min-height: 100%;
     overflow: auto;
-    padding: 20px 0 58px 32px;
     background: #fff;
     transform: translateX(-100%);
     transition: 0.5s ease-in-out;
@@ -442,6 +441,16 @@
 
     &.show {
         transform: translateX(0);
+    }
+}
+.header__menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px 0 58px 32px;
+
+    @media (max-width: 479px) {
+        padding-left: 15px;
     }
 
     .logo {

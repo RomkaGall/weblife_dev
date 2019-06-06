@@ -90,7 +90,7 @@ gulp.task('sass', function () {
       })))
     .pipe(rename({ suffix: '.min', prefix: '' }))
     .pipe(autoprefixer(['last 15 versions']))
-    .pipe(cssnano())
+    // .pipe(cssnano())
     .pipe(gulp.dest(path.build.css))
     .pipe(plumber())
     .pipe(browserSync.reload({ stream: true }));
